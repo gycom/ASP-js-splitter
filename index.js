@@ -1,10 +1,7 @@
 var fs = require("fs");
 var filecache = require("./FileCache").FileCache;
 var cur = null;
-var flist = [
-    //"Orders/Archives/GlobalInfo.asp",
-    "Orders/training.asp"
-];
+var flist = require("./filelist/filelist.json");
 
 function init(cb)
 {
