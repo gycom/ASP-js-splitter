@@ -1,11 +1,11 @@
 # ASP-js-splitter
 
 Tool to split Classic ASP code to extract javascript block into *.js external files
-Typically, it should clean the <script> tag of all ASP code insertions, replacing them with 
-local logic-equivalent javascript code and create a extract <script> tag containing ASP inserted value
+Typically, it should clean the (script) tag of all ASP code insertions, replacing them with 
+local logic-equivalent javascript code and create a extract (script) tag containing ASP inserted value
 
 ## Example
-```
+```javascript
     ... asp blah blah ...
     <script>
     function test()
@@ -24,7 +24,7 @@ local logic-equivalent javascript code and create a extract <script> tag contain
 ```
 
 ## Should become
-```
+```javascript
     ... asp blah blah ...
     <script>
     var value1 = <%=nTotal+4%>;
