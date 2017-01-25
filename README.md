@@ -6,44 +6,44 @@ local logic-equivalent javascript code and create a extract <script> tag contain
 
 ## Example
 
-... asp blah blah ...
-<script>
-function test()
-{
-    for (var i=0; i < <%=nTotal+4%>; i++)
+    ... asp blah blah ...
+    <script>
+    function test()
     {
-      <%if flag="SINGLE" then%>
-      x=x+1;
-      <%else%>
-      x=x+2;
-      <%end if%>
+        for (var i=0; i < <%=nTotal+4%>; i++)
+        {
+          <%if flag="SINGLE" then%>
+          x=x+1;
+          <%else%>
+          x=x+2;
+          <%end if%>
+        }
     }
-}
-</script>
-... asp blah blah ...
+    </script>
+    ... asp blah blah ...
 
 ## Should become
-... asp blah blah ...
-<script>
-var value1 = <%=nTotal+4%>;
-var value2 = <%=toBool(flag="SINGLE")%>;
-</script>
-<script src="file1.js"></script>
-... asp blah blah ...
-
+    ... asp blah blah ...
+    <script>
+    var value1 = <%=nTotal+4%>;
+    var value2 = <%=toBool(flag="SINGLE")%>;
+    </script>
+    <script src="file1.js"></script>
+    ... asp blah blah ...
+    
 and file1.js containing
 
-function test()
-{
-    for (var i=0; i < value1; i++)
+    function test()
     {
-      if (value2) 
-      {
-        x=x+1;
-      } 
-      else 
-      {
-        x=x+2;
-      }
+        for (var i=0; i < value1; i++)
+        {
+          if (value2) 
+          {
+            x=x+1;
+          } 
+          else 
+          {
+            x=x+2;
+          }
+        }
     }
-}
