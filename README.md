@@ -5,7 +5,7 @@ Typically, it should clean the <script> tag of all ASP code insertions, replacin
 local logic-equivalent javascript code and create a extract <script> tag containing ASP inserted value
 
 ## Example
-
+```
     ... asp blah blah ...
     <script>
     function test()
@@ -21,8 +21,10 @@ local logic-equivalent javascript code and create a extract <script> tag contain
     }
     </script>
     ... asp blah blah ...
+```
 
 ## Should become
+```
     ... asp blah blah ...
     <script>
     var value1 = <%=nTotal+4%>;
@@ -30,9 +32,11 @@ local logic-equivalent javascript code and create a extract <script> tag contain
     </script>
     <script src="file1.js"></script>
     ... asp blah blah ...
-    
+```
+
 and file1.js containing
 
+```
     function test()
     {
         for (var i=0; i < value1; i++)
@@ -47,3 +51,4 @@ and file1.js containing
           }
         }
     }
+```
