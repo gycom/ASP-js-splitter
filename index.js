@@ -18,10 +18,13 @@ function parse(filename)
     filecache.getCached(filename,function(cur){
         cur.content = Process(cur.content,splitmode.script,"SCRIPT");
         PrependValueList(cur.content);
-        //console.log(JSON.stringify(cur.content,null,2));
-        console.log(asText(cur));
+        console.log("\r\n\r\n" + toJSON(cur));
+        console.log("\r\n\r\n" + asText(cur));
     });
 }
+
+
+
 var varseq = 0;
 var varlist = "";
 function Process(content,mode,next)
